@@ -1,0 +1,58 @@
+GET http://localhost:8080/users HTTP/1.1
+###
+
+POST http://localhost:8080/users/new HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Kaylene",
+    "lastName": "Ellinger",
+    "email": "kayleneellinger@email.com",
+    "dob": "2/24/2000",
+    "mailList": "no"
+}
+###
+
+PUT http://localhost:8080/users/63e09976b685ecbff797307a HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Kaylene",
+    "lastName": "Ellinger",
+    "email": "kayleneellinger@email.com",
+    "dob": "2/24/2000",
+    "mailList": "yes"
+}
+###
+DELETE  http://localhost:8080/users/63e09976b685ecbff797307a HTTP/1.1
+
+# Production
+###
+GET https://kaylene-cse341-project-2.onrender.com/users HTTP/1.1
+###
+
+POST https://kaylene-cse341-project-2.onrender.com/user/new HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Kaylene",
+    "lastName": "Ellinger",
+    "email": "kayleneellinger@email.com",
+    "dob": "2/24/2000",
+    "mailList": "no"
+}
+###
+
+PUT https://kaylene-cse341-project-2.onrender.com/users/63e09976b685ecbff797307a HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Kaylene",
+    "lastName": "Ellinger",
+    "email": "kayleneellinger@email.com",
+    "dob": "2/24/2000",
+    "mailList": "yes"
+}
+###
+
+DELETE https://kaylene-cse341-project-2.onrender.com/users/63e09976b685ecbff797307a HTTP/1.1

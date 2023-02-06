@@ -1,0 +1,108 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Book API",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "https://kaylene-cse341-project-2.onrender.com",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/new": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "dob": {
+                  "example": "any"
+                },
+                "mailList": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
