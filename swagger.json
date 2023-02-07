@@ -5,7 +5,7 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "kaylene-cse341-project-2.onrender.com",
+  "host": "https://kaylene-cse341-project-2.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",
