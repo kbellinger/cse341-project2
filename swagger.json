@@ -14,6 +14,9 @@
   "paths": {
     "/users": {
       "get": {
+        "tags": [
+          "users"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -26,38 +29,73 @@
         }
       }
     },
+    "/users/{userId}": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/users/new": {
       "post": {
+        "tags": [
+          "users"
+        ],
         "description": "",
-        "parameters": [{
+        "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
           "name": "body",
           "in": "body",
-          "schema": 
-          {
+          "schema": {
             "type": "object",
-            "properties": 
-              {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "dob": {
-                  "example": "any"
-                },
-                "mailList": {
-                  "example": "any"
-                }
+            "properties": {
+              "firstName": {
+                "example": "any"
+              },
+              "lastName": {
+                "example": "any"
+              },
+              "email": {
+                "example": "any"
+              },
+              "dob": {
+                "example": "any"
+              },
+              "mailList": {
+                "example": "any"
               }
             }
-          }],
+          }
+        }],
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error"
@@ -67,6 +105,9 @@
     },
     "/users/{id}": {
       "put": {
+        "tags": [
+          "users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -104,12 +145,18 @@
           "204": {
             "description": "No Content"
           },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
+        "tags": [
+          "users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -122,6 +169,184 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/books": {
+      "get": {
+        "tags": [
+          "books"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/books/{bookId}": {
+      "get": {
+        "tags": [
+          "books"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "books"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "author": {
+                  "example": "any"
+                },
+                "publicationDate": {
+                  "example": "Sep 4, 1987"
+                },
+                "publisher": {
+                  "example": "any"
+                },
+                "pages": {
+                  "example": "any"
+                },
+                "bestSellerList": {
+                  "example": "yes"
+                },
+                "totalInSeries": {
+                  "example": 4
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "books"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/books/new": {
+      "post": {
+        "tags": [
+          "books"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "author": {
+                  "example": "any"
+                },
+                "publicationDate": {
+                  "example": "Sep 4, 1987"
+                },
+                "publisher": {
+                  "example": "any"
+                },
+                "pages": {
+                  "example": "any"
+                },
+                "bestSellerList": {
+                  "example": "yes"
+                },
+                "totalInSeries": {
+                  "example": 4
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error"

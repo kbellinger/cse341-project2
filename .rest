@@ -1,3 +1,4 @@
+# ----- USERS -----
 GET http://localhost:8080/users HTTP/1.1
 ###
 
@@ -7,7 +8,7 @@ content-type: application/json
 {
     "firstName": "Kaylene",
     "lastName": "Ellinger",
-    "email": "kayleneellinger@email.com",
+    "email": "kayell@email.com",
     "dob": "2/24/2000",
     "mailList": "no"
 }
@@ -24,9 +25,9 @@ content-type: application/json
     "mailList": "yes"
 }
 ###
-DELETE  http://localhost:8080/users/63e09976b685ecbff797307a HTTP/1.1
+DELETE  http://localhost:8080/users/63e278cfb025ec7568b8b7f4 HTTP/1.1
 
-# Production
+# PRODUCTION 
 ###
 GET https://kaylene-cse341-project-2.onrender.com/users HTTP/1.1
 ###
@@ -56,3 +57,72 @@ content-type: application/json
 ###
 
 DELETE https://kaylene-cse341-project-2.onrender.com/users/63e09976b685ecbff797307a HTTP/1.1
+###
+
+# ----- BOOKS ------
+GET http://localhost:8080/books HTTP/1.1
+###
+
+POST http://localhost:8080/books/new HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Saints: The Standard of Truth",
+    "author": "Variety",
+    "publicationDate": "Sep 4, 2018",
+    "publisher": "The Church of Jesus Christ of Latter-day Saints",
+    "pages": "699",
+    "bestSellerList": "no",
+    "totalInSeries": 5
+}
+###
+
+PUT http://localhost:8080/books/63e6a710617a2af557e0f3ad HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Saints: The Standard of Truth",
+    "author": "Variety",
+    "publicationDate": "Sep 4, 2018",
+    "publisher": "The Church of Jesus Christ of Latter-day Saints",
+    "pages": "699",
+    "bestSellerList": "no",
+    "totalInSeries": 4
+}
+###
+
+DELETE http://localhost:8080/books/63e6a710617a2af557e0f3ad HTTP/1.1
+
+# PRODUCTION
+GET https://kaylene-cse341-project-2.onrender.com/books HTTP/1.1
+###
+
+POST https://kaylene-cse341-project-2.onrender.com/books/new HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Saints: The Standard of Truth",
+    "author": "Variety",
+    "publicationDate": "Sep 4, 2018",
+    "publisher": "The Church of Jesus Christ of Latter-day Saints",
+    "pages": "699",
+    "bestSellerList": "no",
+    "totalInSeries": 5
+}
+###
+
+PUT https://kaylene-cse341-project-2.onrender.com/books/63e6a710617a2af557e0f3ad HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Saints: The Standard of Truth",
+    "author": "Variety",
+    "publicationDate": "Sep 4, 2018",
+    "publisher": "The Church of Jesus Christ of Latter-day Saints",
+    "pages": "699",
+    "bestSellerList": "no",
+    "totalInSeries": 4
+}
+###
+
+DELETE https://kaylene-cse341-project-2.onrender.com/books/63e6a710617a2af557e0f3ad HTTP/1.1
