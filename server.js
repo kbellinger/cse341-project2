@@ -3,16 +3,16 @@ var app = express();
 const mongodb = require('./db/connect');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const { requiresAuth } = require('express-openid-connect');
 const port = process.env.PORT || 8080;
-
 const { auth } = require('express-openid-connect');
 
 const config = {
   authRequired: false,
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'https://kaylene-cse341-project-2.onrender.com',
+  // baseURL: 'https://kaylene-cse341-project-2.onrender.com',
+  baseURL: 'http://localhost:8080',
   clientID: 'ENCqVK1ShsOMEH8bf4pDXaaHzJCRDgho',
   issuerBaseURL: 'https://dev-tdg8pl5whnwec2z0.us.auth0.com'
 };
@@ -24,10 +24,6 @@ app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
-const { requiresAuth } = require('express-openid-connect');
-app.get('/profile', requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.oidc.user));
-});
 
 app.use(cors());
 app.use('/', require('./routes'));
