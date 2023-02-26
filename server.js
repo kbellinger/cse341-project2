@@ -16,6 +16,7 @@ const config = {
   clientID: 'ENCqVK1ShsOMEH8bf4pDXaaHzJCRDgho',
   issuerBaseURL: 'https://dev-tdg8pl5whnwec2z0.us.auth0.com'
 };
+app.use(cors());
 
 app.use(bodyParser.json());
 
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.use(cors());
+
 app.use('/', require('./routes'));
 app.use((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
