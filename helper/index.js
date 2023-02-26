@@ -21,7 +21,7 @@ function validateBook(book){
         publisher: Joi.string().required(),
         pages: Joi.string().required(),
         bestSellerList: Joi.string().required(),
-        totalInSeries: Joi.integer().required()
+        totalInSeries: Joi.number().required()
     })
     .options({ abortEarly: false });
 
